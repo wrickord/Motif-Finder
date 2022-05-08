@@ -1,0 +1,40 @@
+﻿You will need run_me.py and automated_evaluation.ipynb. 
+
+
+Place both of these files in a dedicated folder.
+
+
+Open run_me.py in an editor, and note the following:
+* On line 195, there is this variable “number_of_processes = 8”. Change this variable to the number of physical CPU cores in your machine (or if you don’t mind having your CPU maxed out at 100% utilization for the next 6-8 hours [you may experience thermal throttling with this setting, especially on a laptop], set this variable to the number of threads your CPU has [typically double the number of cores]).
+* You will need to run run_me.py twice to get usable running time results. The first time should be with the datasets in standard order. The second time should be with the datasets in reversed order. See lines 198 to 205 for more information and instructions on how to reverse the dataset order.
+   * You only need to run run_me.py once to get usable results for everything else like relative entropy or overlap.
+
+
+For run_me.py, you execute it with python3 ./run_me.py (for Windows, this might be python3 .\run_me.py or python .\run_me.py [the latter if you only have python3 installed]). Running run_me.py will automatically generate all datasets in the same folder as the file itself, as well as run the motif finding code. The results for each dataset will be written to the appropriate dataset folder. The running time for each dataset will be printed to the terminal.
+
+
+As mentioned above, this code will take about 6+ hours to complete. Once done, copy and paste the run time results from the terminal into a txt file. You need to omit the “DONE!” and the array of 0’s from this file. Make sure that this txt file is moved into the same folder as run_me.py and automated_evaluation.ipynb.
+
+
+There are 100 datasets in total. They are generated with the following parameters (you will need to know these in order to properly select the correct data for copying and pasting into matlab):
+
+
+1-10 are default parameters
+11-20 have ICPC = 1
+21-30 have ICPC = 1.5
+31-40 have ICPC = 2
+41-50 have ML = 6
+51-60 have ML = 7
+61-70 have ML = 8
+71-80 have SC = 5
+81-90 have SC = 10
+91-100 have SC = 20
+
+
+Open automated_evaluation.ipynb in a jupyter notebook. Go to the 3rd cell and look at the last line. Replace “run2.txt” with the name of the txt file you created above. Go ahead and run this cell, which should give you all of the dataset runtimes in order (1st number for dataset 1, 2nd number for dataset 2, and so on).
+
+
+Now you can run all of the other cells. This will print out the appropriate values (relative entropy, overlap, etc) in dataset order (1st number for dataset 1, 2nd number for dataset 2, and so on). See the bottom half of cells 2 and 4 for comments describing which lines to comment/uncomment in order to change what is printed (this is useful for copying and pasting the raw numbers into excel/matlab).
+
+
+We made the runtime graph in excel. Simply copy over the results from the 3rd cell, and make a scatter plot. For all other plots we used matlab in livescript mode. See RESULTS.PDF for the matlab code that was used, and copy over the appropriate values.
